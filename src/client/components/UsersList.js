@@ -27,4 +27,10 @@ export const mapStateToProps = (state) =>{
 	}
 };
 
+function loadData(store) {
+	return store.dispatch(fetchUsers());
+}
+
+export {loadData};
+
 export default connect(mapStateToProps,{fetchUsers})(UsersList)

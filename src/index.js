@@ -10,7 +10,10 @@ const app = express();
 app.use(express.static('public'));
 app.get('*', (req, res) => {
 	const store = createStore();
-	console.log(matchRoutes(Routes,req.path));
+	const promisse = matchRoutes(Routes,req.path).map(({route})=>{
+		return route.loadData ? route.loadData(store) : null;
+	});
+	console.log(promisse);
 	res.send(renderer(req,store));
 });
 
