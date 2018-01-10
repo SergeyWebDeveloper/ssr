@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-import {fetchUsers} from '../actions';
+import {fetchUsers} from '../actions/index';
 import {connect} from 'react-redux';
 
 class UsersList extends Component{
@@ -15,7 +15,7 @@ class UsersList extends Component{
 		return(
 			<div>
 				<h2>A list of users</h2>
-				<ul>{!this.props.users.length? 'Loading...' : this.renderUsers()}</ul>
+				<ul>{this.renderUsers()}</ul>
 			</div>
 		)
 	}
