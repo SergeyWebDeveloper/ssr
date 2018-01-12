@@ -262,6 +262,10 @@ var _reactRouterDom = __webpack_require__(11);
 
 var _reactRouterConfig = __webpack_require__(1);
 
+var _serializeJavascript = __webpack_require__(19);
+
+var _serializeJavascript2 = _interopRequireDefault(_serializeJavascript);
+
 var _reactRedux = __webpack_require__(2);
 
 var _Routes = __webpack_require__(3);
@@ -284,7 +288,7 @@ exports.default = function (req, store) {
 			)
 		)
 	));
-	return '\n\t\t<html>\n\t\t\t<head></head>\n\t\t\t<body>\n\t\t\t\t<div id="root">' + content + '</div>\n\t\t\t\t<script src="bundle.js"></script>\n\t\t\t</body>\n\t\t</html>\n\t';
+	return '\n\t\t<html>\n\t\t\t<head></head>\n\t\t\t<body>\n\t\t\t\t<div id="root">' + content + '</div>\n\t\t\t\t<script>\n\t\t\t\t\twindow.INITIAL_STATE=' + (0, _serializeJavascript2.default)(store.getState()) + '\n\t\t\t\t</script>\n\t\t\t\t<script src="bundle.js"></script>\n\t\t\t</body>\n\t\t</html>\n\t';
 };
 
 /***/ }),
@@ -508,6 +512,12 @@ exports.default = function () {
 			return state;
 	}
 };
+
+/***/ }),
+/* 19 */
+/***/ (function(module, exports) {
+
+module.exports = require("serialize-javascript");
 
 /***/ })
 /******/ ]);
